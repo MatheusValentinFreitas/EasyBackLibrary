@@ -29,7 +29,7 @@ class Filter
         return $float;
     }
 
-    static function retornaCampoTratado(mixed $string, int $limTam = null, int $limExt = null, string $campoNome, $formataString = true)
+    static function retornaCampoTratado(mixed $string = null, int $limTam = null, int $limExt = null, string $campoNome, $formataString = true)
     {
         $result = true;
         $message = '';
@@ -45,13 +45,13 @@ class Filter
                 $string = self::formataString($string);
             }
 
-            if ($limTam != null) {
+            if ($limTam != null && $string != null) {
                 if (!self::stringLimiteTam($string, $limTam)) {
                     throw new Exception("O campo $campoNome ultrapassa o limite de $limTam caracteres.");
                 }
             }
 
-            if ($limExt != null) {
+            if ($limExt != null && $string != null) {
                 if (!self::stringLimiteExatIgual($string, $limExt)) {
                     throw new Exception("O campo $campoNome deve ter exatamente $limExt caracteres.");
                 }
