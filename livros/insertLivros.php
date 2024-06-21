@@ -4,6 +4,7 @@ require_once('../index.php');
 require_once('../classes/funcoesValidadoras.php');
 $response = new Response();
 
+
 $data = json_decode(file_get_contents("php://input"), true);
 
 $isbn = $data['isbn'] ?? null;

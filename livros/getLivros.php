@@ -18,7 +18,8 @@ try {
         $where_clause .= implode(" AND ", $filters);
     }
 
-    $sql = "SELECT * FROM Livro " . $where_clause;
+    $sql = "SELECT ISBN, Autor, Genero, Ano_de_publicacao, Editora, Status, Livro.Exemplar, Imagem, exemplar.Exemplar as exemplar_name FROM Livro 
+    LEFT JOIN exemplar ON exemplar.ID_EXEMPLAR = Livro.Exemplar" . $where_clause;
     $query = $con->query($sql);
     $result = $query->fetchAll(PDO::FETCH_ASSOC);
     $numResult = $query->rowCount();
