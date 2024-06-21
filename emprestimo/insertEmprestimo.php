@@ -11,7 +11,7 @@ $sql = "INSERT INTO Emprestimo (Data_emprestimo, Data_devolucao)
         VALUES ('$data_emprestimo', '$data_devolucao')";
 
 if ($con->query($sql) === TRUE) {
-    echo "Empréstimo inserido com sucesso!";
+    // echo "Empréstimo inserido com sucesso!";
 } else {
     echo "Erro ao inserir empréstimo.";
 }
