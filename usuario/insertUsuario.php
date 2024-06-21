@@ -72,8 +72,15 @@ try {
         $senha = $senha['string'];
     }
 
+    $cpf = ($cpf != null) ? "'" . $cpf . "'" : NULL;
+    $nome = ($nome != null) ? "'" . $nome . "'" : NULL;
+    $endereco = ($endereco != null) ? "'" . $endereco . "'" : NULL;
+    $telefone = ($telefone != null) ? "'" . $telefone . "'" : NULL;
+    $email = ($email != null) ? "'" . $email . "'" : NULL;
+    $senha = ($senha != null) ? "'" . $senha . "'" : NULL;
+
     $sql = "INSERT INTO usuario (CPF, Nome, Endereco, Telefone, Email, Senha) 
-            VALUES ('$cpf', '$nome', '$endereco', '$telefone', '$email', '$senha')";
+            VALUES ($cpf, $nome, $endereco, $telefone, $email, $senha)";
 
     if (!$con->query($sql)) {
         throw new Exception('Ocorreu um erro ao tentar criar o novo usuario.', 1);

@@ -35,16 +35,14 @@ class Filter
         $message = '';
 
         try {
-            if ($string == null) {
-                throw new Exception("O campo $campoNome não foi informado.");
-            }
-
-            if ($formataString) {
-                $string = self::formataString($string);
-            }
 
             if (empty($string)) {
-                throw new Exception("O campo $campoNome deve ser preenchido.");
+                // throw new Exception("O campo $campoNome deve ser preenchido.");
+                $string = NULL;
+            }
+
+            if ($formataString && $string != null) {
+                $string = self::formataString($string);
             }
 
             if ($limTam != null) {
